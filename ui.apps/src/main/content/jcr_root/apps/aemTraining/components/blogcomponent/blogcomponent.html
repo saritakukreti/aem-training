@@ -1,0 +1,22 @@
+<!-- Blog Component -->
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.css @ categories='aem.tutorials'}" />
+
+<sly data-sly-use.blogComponentModel="com.adobe.aem.training.core.models.BlogComponentModel">
+  <div 
+    class="userdetails" 
+    style="background-image: url('${blogComponentModel.bgimage @context='uri'}');"
+  >
+    <h2>Title: ${blogComponentModel.title}</h2>
+    <p>Description: ${blogComponentModel.desc}</p>
+
+    <sly data-sly-test="${blogComponentModel.ctatext}">
+      <a href="#" class="cta-btn">${blogComponentModel.ctatext}</a>
+    </sly>
+  </div>
+</sly>
+
+
+
+

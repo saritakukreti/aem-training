@@ -1,0 +1,12 @@
+
+<sly data-sly-use.model="com.adobe.aem.training.core.models.TrainersComponentModel" />
+
+<div class="trainer-list">
+    <ul data-sly-list.trainer="${model.trainers}">
+        <li class="trainer-item">
+            <img src="${trainer.trainerImage}" alt="${trainer.trainerName}" />
+            <h3>${trainer.trainerName}</h3>
+            <p>${trainer.trainerDesignation}</p>
+        </li>
+    </ul>
+</div>

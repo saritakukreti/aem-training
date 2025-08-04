@@ -1,0 +1,20 @@
+<div
+  data-sly-use.trainersList="com.adobe.aem.training.core.models.TrainerComponentModel"
+  data-sly-test.trainersList="${trainersList}"
+>
+  <h2>${trainersList.heading}</h2>
+
+  <!-- Loop over trainers -->
+  <ul data-sly-list.trainers="${trainersList.trainers}">
+    <li>
+      Name: ${trainers.trainerName}<br />
+      Designation: ${trainers.trainerDesignation}<br />
+      <img src="${trainers.trainerImage}" alt="${trainers.trainerName}" />
+
+      <!-- Loop over skills -->
+      <ul data-sly-list.skill="${trainers.specialization}">
+        <li>${skill.skills}</li>
+      </ul>
+    </li>
+  </ul>
+</div>

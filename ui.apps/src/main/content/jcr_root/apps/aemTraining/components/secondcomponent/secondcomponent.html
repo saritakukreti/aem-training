@@ -1,0 +1,11 @@
+<div data-emptytext="Second Component" class="cq:placeholder"></div>
+<sly data-sly-use.secondComponentModel="com.adobe.aem.training.core.models.SecondComponentModel">
+<div>
+<p class="second-component-text">Title:${secondComponentModel.title}</p>
+<p>Text:${secondComponentModel.text}</p>
+<p>Eyebrow:${secondComponentModel.eyebrow}</p>
+<p>Header:${secondComponentModel.header}</p>
+</div>
+</sly>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+<sly data-sly-call="${clientlib.css @ categories='aem.tutorials'}" />
