@@ -1,3 +1,9 @@
+<!-- Load CSS from clientlibs -->
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+  <sly data-sly-call="${clientlib.css @ categories='aem.tutorials'}" />
+</sly>
+
+<!-- Trainers Component -->
 <div
   data-sly-use.trainersList="com.adobe.aem.training.core.models.TrainerComponentModel"
   data-sly-test.trainersList="${trainersList}"
@@ -5,16 +11,19 @@
   <h2>${trainersList.heading}</h2>
 
   <!-- Loop over trainers -->
-  <ul data-sly-list.trainers="${trainersList.trainers}">
-    <li>
-      Name: ${trainers.trainerName}<br />
-      Designation: ${trainers.trainerDesignation}<br />
+  <div class="trainers-list" data-sly-list.trainers="${trainersList.trainers}">
+    <div class="trainer-card">
       <img src="${trainers.trainerImage}" alt="${trainers.trainerName}" />
+      <h3>${trainers.trainerName}</h3>
+      <p class="designation">${trainers.trainerDesignation}</p>
 
       <!-- Loop over skills -->
-      <ul data-sly-list.skill="${trainers.specialization}">
+      <ul class="skills" data-sly-list.skill="${trainers.specialization}">
         <li>${skill.skills}</li>
       </ul>
-    </li>
-  </ul>
+
+      <!-- Call-to-action button -->
+      <a href="#" class="cta-btn">Know More</a>
+    </div>
+  </div>
 </div>
