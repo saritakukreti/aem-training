@@ -73,12 +73,13 @@
                                             fieldLabel="Category"
                                             name="./productCategory"/>
 
-                                        <productTags
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/form/tags"
-                                            fieldLabel="Tags"
-                                            name="./productTags"
-                                            rootPath="/etc/tags"/>
+                                           <productTags
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+            fieldLabel="Tags"
+            name="./productTags"
+            allowMultiple="{Boolean}true"
+            rootPath="/content/cq:tags/products"/>
 
                                         <productStock
                                             jcr:primaryType="nt:unstructured"
