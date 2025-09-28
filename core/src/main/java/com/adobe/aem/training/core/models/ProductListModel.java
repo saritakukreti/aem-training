@@ -28,6 +28,7 @@ public class ProductListModel {
     @PostConstruct
     protected void init() {
         products = apiService.fetchProducts();
+        System.out.println("Fetched products: " + products); // debug log
     }
 
     @JsonProperty("products")

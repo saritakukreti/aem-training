@@ -9,17 +9,14 @@ public class ApiProductPojo {
     @JsonProperty("name")
     private String name;
 
-    @JsonProperty("desc")
-    private String desc;
+    @JsonProperty("description")
+    private String description; // matches JSON exactly
 
     @JsonProperty("image")
     private String image;
 
     @JsonProperty("price")
     private Double price;
-
-    @JsonProperty("category")
-    private String category;
 
     @JsonProperty("tags")
     private String[] tags;
@@ -32,10 +29,9 @@ public class ApiProductPojo {
 
     // Getters
     public String getName() { return name; }
-    public String getDesc() { return desc; }
+    public String getDescription() { return description; }
     public String getImage() { return image; }
     public Double getPrice() { return price; }
-    public String getCategory() { return category; }
     public String[] getTags() { return tags; }
     public boolean isInStock() { return inStock; }
     public String getRating() { return rating; }
