@@ -1,78 +1,42 @@
-<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
-  <sly
-    data-sly-call="${clientlib.css @ categories='aem.training.productlist'}"
-  />
-  <sly
-    data-sly-call="${clientlib.js @ categories='aem.training.productlist'}"
-  />
-</sly>
-
-<!-- Bootstrap CDN (CSS & JS) -->
-<link
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-  rel="stylesheet"
-/>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<sly
-  data-sly-use.productList="com.adobe.aem.training.core.models.ProductListModel"
-  data-sly-test.hasProducts="${productList.products && productList.products.size > 0}"
->
-  <!-- Product Grid -->
+<sly data-sly-use.model="com.adobe.aem.training.core.models.ProductListModel">
   <div class="container my-4">
     <div class="row g-4">
-      <!-- ITERATION: one col per product -->
-      <sly data-sly-list.product="${productList.products}">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
+      <sly data-sly-list.product="${model.products}">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
           <div class="card h-100 shadow-sm w-100">
-            <!-- Product Image -->
             <img
-              src="${product.productImage}"
+              src="${product.image}"
               class="card-img-top"
-              alt="${product.productName}"
+              alt="${product.name}"
               style="object-fit: cover; height: 180px"
             />
-
-            <!-- Card Body -->
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title mb-1">${product.productName}</h5>
-              <p class="card-text text-muted small mb-2">
-                ${product.productDesc}
-              </p>
-
-              <!-- Tags -->
-              <sly data-sly-test="${product.productTags}">
+              <h5 class="card-title mb-1">${product.name}</h5>
+              <p class="card-text text-muted small mb-2">${product.desc}</p>
+              <sly data-sly-test="${product.tags}">
                 <div class="mb-2">
                   <span
                     class="badge bg-light text-dark me-1 mb-1"
-                    data-sly-list.tag="${product.productTags}"
+                    data-sly-list.tag="${product.tags}"
+                    >${tag}</span
                   >
-                    ${tag}
-                  </span>
                 </div>
               </sly>
-
-              <!-- Footer (Price + Stock) -->
               <div
                 class="d-flex justify-content-between align-items-center mt-auto"
               >
-                <span class="fw-bold text-dark">₹${product.productPrice}</span>
+                <span class="fw-bold text-dark">₹${product.price}</span>
                 <span
                   class="${product.inStock ? 'text-success fw-semibold' : 'text-danger fw-semibold'}"
                 >
                   ${product.inStock ? 'In Stock' : 'Out of Stock'}
                 </span>
               </div>
-
-              <!-- Rating -->
-              <div class="text-muted small mt-1">
-                ⭐ ${product.productRating}
-              </div>
+              <div class="text-muted small mt-1">⭐ ${product.rating}</div>
             </div>
           </div>
         </div>
       </sly>
-      <!-- END iteration -->
     </div>
   </div>
 </sly>
